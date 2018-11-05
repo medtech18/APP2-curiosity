@@ -30,16 +30,6 @@ void stop (void)
 void execute(cellule_t * tete);
 cellule_t* cookBloc(cellule_t * pointerF);
 
-
-void afficherList(cellule_t * myList)
-{
-    while(myList)
-    {
-        printf("%c \n",myList->command);
-        myList = myList->suivant;
-    }
-}
-
 int interprete (sequence_t* seq, bool debug)
 {
     // Version temporaire a remplacer par 
