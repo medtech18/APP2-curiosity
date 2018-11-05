@@ -1,0 +1,53 @@
+Voici dans ce fichier la liste des tests à effectuer par ordre de difficulté 
+et regroupés par actes.
+
+Acte I:
+=======
+
+- simple
+
+
+Acte II:
+========
+
+- mesures
+- marques
+- marques-et-mesures
+
+
+Acte III:
+=========
+
+- if
+
+
+Acte IV:
+========
+
+- empile
+- imbrique
+
+
+Acte V:
+=======
+
+- boucle
+
+
+Acte VI:
+========
+
+- exec
+- echanges
+- ifignore
+
+- clones
+- rotations
+
+- boucle-if
+- boucle-clone
+- langton
+
+
+- labyrinthe
+- surprise

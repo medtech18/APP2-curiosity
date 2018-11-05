@@ -1,0 +1,30 @@
+A Lire
+------
+
+Version C
+=========
+
+- pour compiler :
+> make
+
+ou
+
+> clang -Wall -Wextra main.c -o main curiosity.c interprete.c listes.c
+(Nous vous conseillons d'utiliser le compilateur clang plutôt que gcc.)
+
+
+- pour executer :
+> ./main tests/<nom de test>.test
+
+- pour executer en mode "pas à pas":
+> ./main -d tests/<nom de test>.test
+
+
+Version Python
+==============
+
+- pour executer :
+> ./main.py tests/<nom de test>.test
+
+- pour executer en mode "pas à pas":
+> ./main.py -d tests/<nom de test>.test
