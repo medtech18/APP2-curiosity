@@ -27,8 +27,19 @@ void stop (void)
 #endif
 }
 
+cellule_t * scanCommand(cellule_t * tete, int varG);
 void execute(cellule_t * tete);
 cellule_t* cookBloc(cellule_t * pointerF);
+
+
+void afficherList(cellule_t * myList)
+{
+    while(myList)
+    {
+        printf("%c \n",myList->command);
+        myList = myList->suivant;
+    }
+}
 
 int interprete (sequence_t* seq, bool debug)
 {
@@ -99,26 +110,9 @@ int interprete (sequence_t* seq, bool debug)
             gauche();
         } else if ((commande=='d')||(commande=='D')) {
             droite();
-        } else if (commande=='0') {
-            var = 0;
-        } else if (commande=='1') {
-            var = 1;
-        } else if (commande=='2') {
-            var = 2;
-        } else if (commande=='3') {
-            var = 3;
-        } else if (commande=='4') {
-            var = 4;
-        } else if (commande=='5') {
-            var = 5;
-        } else if (commande=='6') {
-            var = 6;
-        } else if (commande=='7') {
-            var = 7;
-        } else if (commande=='8') {
-            var = 8;
-        }else if (commande=='9') {
-            var = 9;
+        }else if (0 <= (commande -48)  && (commande -48) <= 8)
+        {
+            var = commande - 48;
         }else if (commande=='m' || commande=='M') {
             var = mesure(var);
         }else if (commande=='p' || commande=='P') {
@@ -151,23 +145,23 @@ int interprete (sequence_t* seq, bool debug)
 }
 
 
-cellule_t* cookBloc(cellule_t * pointerF)
+cellule_t* cookBloc(cellule_t * pointer)
 {
     cellule_t * finalBloc = NULL,*finalBlocHead = NULL;
 
-    if(pointerF->command == '}')
+    if(pointer->command == '}')
     {
         finalBlocHead = nouvelleCellule();
         finalBlocHead->command = '-';
         finalBlocHead->suivant = NULL;
         return finalBlocHead;
     }
-                    while(pointerF && (pointerF->command) != '}')
+                    while(pointer && (pointer->command) != '}')
                     {
                         if(finalBlocHead == NULL)
                         {
                                 finalBlocHead = nouvelleCellule();
-                                finalBlocHead->command = pointerF->command;
+                                finalBlocHead->command = pointer->command;
                                 finalBlocHead->suivant = NULL;
 
                                 finalBloc = finalBlocHead;
@@ -179,11 +173,11 @@ cellule_t* cookBloc(cellule_t * pointerF)
                                     finalBloc = finalBloc->suivant;
                                 }
                                 finalBloc->suivant = nouvelleCellule();
-                                finalBloc->suivant->command = pointerF->command;
+                                finalBloc->suivant->command = pointer->command;
                                 finalBloc = finalBloc->suivant;
                                 finalBloc->suivant = NULL;
                             }
-                        pointerF = pointerF->suivant;
+                        pointer = pointer->suivant;
                     }
     return finalBlocHead;
 }
