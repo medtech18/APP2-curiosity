@@ -27,7 +27,6 @@ void stop (void)
 #endif
 }
 
-cellule_t * scanCommand(cellule_t * tete, int varG);
 void execute(cellule_t * tete);
 cellule_t* cookBloc(cellule_t * pointerF);
 
